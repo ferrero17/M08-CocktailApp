@@ -40,6 +40,11 @@ public List<Drink> drinkList = new ArrayList<>();
         return drinkList.size();
     }
 
+    public void setList(List<Drink> drinks){
+
+        this.drinkList = drinks;
+    }
+
 
     class DrinkListViewHolder extends RecyclerView.ViewHolder{
         TextView name;

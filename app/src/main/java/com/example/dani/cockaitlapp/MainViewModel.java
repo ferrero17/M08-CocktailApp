@@ -17,9 +17,26 @@ public class MainViewModel extends AndroidViewModel {
 
     }
 
+
+
+    LiveData<List<Drink>> getAllMargaritas(){
+        return drinksdbRepository.getDrinks();
+    }
+
+
+    public LiveData <List<Drink>> getRandomDrink(){
+
+        return drinksdbRepository.getRandomDrink();
+    }
+
     public LiveData<List<Drink>> getDrinks(){
 
         return drinksdbRepository.getDrinks();
+    }
+
+    public LiveData<List<Drink>> getVodkaDrinks(){
+
+        return drinksdbRepository.getVodkaDrinks();
     }
 
 }

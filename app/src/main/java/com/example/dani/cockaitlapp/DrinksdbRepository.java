@@ -35,4 +35,48 @@ public class DrinksdbRepository {
 
         return lista;
     }
+
+
+
+    public LiveData<List<Drink>> getRandomDrink(){
+        final MutableLiveData<List<Drink>> lista = new MutableLiveData<>();
+
+        lcboAPI.getRandomDrink().enqueue(new Callback<RandomResponse>() {
+            @Override
+            public void onResponse(Call<RandomResponse> call, Response<RandomResponse> response) {
+                lista.setValue(response.body().drinks);
+            }
+
+            @Override
+            public void onFailure(Call<RandomResponse> call, Throwable t) {
+                System.out.println("No se ha podido conectar con la base de datos");
+            }
+        });
+
+        return lista;
+
+    }
+
+
+
+    public LiveData<List<Drink>> getVodkaDrinks(){
+        final MutableLiveData<List<Drink>> lista = new MutableLiveData<>();
+
+        lcboAPI.getVodkaDrinks().enqueue(new Callback<VodkaResponse>() {
+            @Override
+            public void onResponse(Call<VodkaResponse> call, Response<VodkaResponse> response) {
+                lista.setValue(response.body().drinks);
+            }
+
+            @Override
+            public void onFailure(Call<VodkaResponse> call, Throwable t) {
+                System.out.println("No se ha podido conectar con la base de datos");
+            }
+        });
+
+        return lista;
+    }
+
+
+
 }
